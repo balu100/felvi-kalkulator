@@ -3,66 +3,69 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Érettségi pontszámító 2025</title>
+<title>Érettségi pontszámító 2025 • frissítve: 2025-09-11</title>
 <style>
   :root{
-    --bg: #fff;
-    --fg: #111;
-    --muted:#666;
-    --line:#e5e5e5;
-    --accent:#111;
-    --ok:#0a0;
-    --warn:#a60;
-    --err:#a00;
+    --bg: #fff; --fg:#111; --muted:#666; --line:#e5e5e5; --accent:#111;
+    --ok:#0a0; --warn:#a60; --err:#a00; --soft:#f8f8f8;
   }
-  html,body{height:100%;}
-  body{
-    margin:0; font: 15px/1.45 system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, sans-serif;
-    color:var(--fg); background:var(--bg);
+  .dark{
+    --bg:#111; --fg:#eee; --muted:#aaa; --line:#2a2a2a; --accent:#fff;
+    --ok:#65d665; --warn:#e0a85c; --err:#ff6b6b; --soft:#1a1a1a;
   }
-  header{position:sticky; top:0; z-index:3; background:var(--bg); border-bottom:1px solid var(--line);}
-  .wrap{max-width:1100px; margin-inline:auto; padding:10px 16px;}
-  h1{font-size:20px; margin:8px 0;}
-  .sub{color:var(--muted); font-size:13px;}
-  .grid{display:grid; gap:14px;}
-  @media(min-width:900px){ .grid.cols-2{grid-template-columns:1fr 1fr;} }
-  fieldset{border:1px solid var(--line); border-radius:12px; padding:12px;}
-  legend{padding:0 6px; color:var(--muted); font-size:12px;}
-  label{display:block; font-size:13px; margin-bottom:4px;}
-  select{width:100%; padding:8px 10px; border:1px solid var(--line); border-radius:10px; background:#fff; color:#111;}
-  .row{display:grid; grid-template-columns:1.5fr .8fr .8fr; gap:10px; align-items:end;}
-  .row.compact{grid-template-columns:1fr 1fr 1fr 1fr;}
-  .row > div{min-width:0;}
-  .section-title{font-weight:600; margin:6px 0 2px;}
-  .pill{display:inline-block; padding:6px 10px; border:1px solid var(--line); border-radius:999px; cursor:pointer; user-select:none;}
-  .pill input{accent-color:#111;}
-  .pills{display:flex; gap:8px; flex-wrap:wrap;}
-  .muted{color:var(--muted);}
-  .help{font-size:12px; color:var(--muted);}
-  .warn{color:var(--warn);} .err{color:var(--err);} .ok{color:var(--ok);} 
-  .divider{height:1px; background:var(--line); margin:8px 0;}
-  .controls{display:flex; gap:10px; flex-wrap:wrap; align-items:center;}
-  button{border:1px solid var(--line); background:#fff; color:#111; padding:8px 12px; border-radius:10px; cursor:pointer;}
-  button.primary{background:#111; color:#fff;}
-  .footer{position:sticky; bottom:0; z-index:3; border-top:1px solid var(--line); background:rgba(255,255,255,.97); backdrop-filter:saturate(140%) blur(6px);}
-  .totals{display:grid; gap:8px; align-items:center;}
-  @media(min-width:900px){ .totals{grid-template-columns: 1fr auto;} }
-  .sumline{display:flex; gap:10px; flex-wrap:wrap; align-items:baseline;}
-  .sumline b{font-size:20px;}
-  .badge{border:1px solid var(--line); padding:2px 8px; border-radius:999px; font-size:12px;}
-  .kpi{display:flex; gap:10px; align-items:center; flex-wrap:wrap;}
-  .kpi span{font-size:12px; color:#333;}
-  .kpi b{font-size:16px;}
-  .errorbox{border:1px solid #f3c5c5; background:#fff8f8; color:#a00; padding:8px 10px; border-radius:8px;}
-  .okbox{border:1px solid #cce5cc; background:#f8fff8; color:#083; padding:8px 10px; border-radius:8px;}
-  .sticky-note{font-size:12px; color:var(--muted);}
+  html,body{height:100%}
+  body{ margin:0; font:15px/1.45 system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,sans-serif; color:var(--fg); background:var(--bg); }
+  header{position:sticky; top:0; z-index:3; background:var(--bg); border-bottom:1px solid var(--line)}
+  .wrap{max-width:1100px; margin-inline:auto; padding:10px 16px}
+  h1{font-size:20px; margin:8px 0}
+  .sub{color:var(--muted); font-size:13px}
+  .grid{display:grid; gap:14px}
+  @media(min-width:900px){ .grid.cols-2{grid-template-columns:1fr 1fr} }
+  fieldset{border:1px solid var(--line); border-radius:12px; padding:12px}
+  legend{padding:0 6px; color:var(--muted); font-size:12px}
+  label{display:block; font-size:13px; margin-bottom:4px}
+  select, input[disabled], input[type="url"], input[type="number"]{ width:100%; padding:8px 10px; border:1px solid var(--line); border-radius:10px; background:var(--bg); color:var(--fg) }
+  .row{display:grid; grid-template-columns:1.5fr .8fr .8fr; gap:10px; align-items:end}
+  .row.compact{grid-template-columns:1fr 1fr 1fr 1fr}
+  .row > div{min-width:0}
+  .section-title{font-weight:600; margin:6px 0 2px}
+  .pill{display:inline-block; padding:6px 10px; border:1px solid var(--line); border-radius:999px; cursor:pointer; user-select:none}
+  .pill input{accent-color:var(--accent)}
+  .pills{display:flex; gap:8px; flex-wrap:wrap}
+  .muted{color:var(--muted)}
+  .help{font-size:12px; color:var(--muted)}
+  .warn{color:var(--warn)} .err{color:var(--err)} .ok{color:var(--ok)}
+  .divider{height:1px; background:var(--line); margin:8px 0}
+  .controls{display:flex; gap:10px; flex-wrap:wrap; align-items:center}
+  button{border:1px solid var(--line); background:var(--bg); color:var(--fg); padding:8px 12px; border-radius:10px; cursor:pointer}
+  button.primary{background:var(--fg); color:var(--bg)}
+  .footer{position:sticky; bottom:0; z-index:3; border-top:1px solid var(--line); background:color-mix(in oklab, var(--bg) 97%, transparent); backdrop-filter:saturate(140%) blur(6px)}
+  .totals{display:grid; gap:8px; align-items:center}
+  @media(min-width:900px){ .totals{grid-template-columns: 1fr auto} }
+  .sumline{display:flex; gap:10px; flex-wrap:wrap; align-items:baseline}
+  .sumline b{font-size:20px}
+  .badge{border:1px solid var(--line); padding:2px 8px; border-radius:999px; font-size:12px}
+  .kpi{display:flex; gap:10px; align-items:center; flex-wrap:wrap}
+  .kpi span{font-size:12px; color:var(--fg)}
+  .kpi b{font-size:18px}
+  .errorbox{border:1px solid color-mix(in oklab, var(--err) 30%, var(--bg)); background:color-mix(in oklab, var(--err) 6%, var(--bg)); color:var(--err); padding:8px 10px; border-radius:8px}
+  .okbox{border:1px solid color-mix(in oklab, var(--ok) 30%, var(--bg)); background:color-mix(in oklab, var(--ok) 6%, var(--bg)); color:color-mix(in oklab, var(--ok) 70%, black); padding:8px 10px; border-radius:8px}
+  .sticky-note{font-size:12px; color:var(--muted)}
+  .ghost{opacity:.6}
+  .soft{background:var(--soft)}
+  .hdr-actions{display:flex; gap:8px; align-items:center; flex-wrap:wrap}
+  .chips{display:flex; gap:8px; flex-wrap:wrap}
+  .chip{display:inline-flex; align-items:center; gap:6px; padding:6px 10px; border:1px solid var(--line); border-radius:999px}
 </style>
 </head>
 <body>
   <header>
-    <div class="wrap">
-      <h1>Érettségi pontszámító <span class="muted">2025</span></h1>
-      <div class="sub">Fekete-fehér, mobilbarát, megosztható. Helyi mentés aktív. Szabályok: Felvi 2025.12.20-as tájékoztató alapján.</div>
+    <div class="wrap hdr-actions">
+      <div style="flex:1">
+        <h1>Érettségi pontszámító <span class="muted">2025</span></h1>
+        <div class="sub">Felvi 2025 szabályok. Mobilbarát. Link-megosztás és helyi mentés.</div>
+      </div>
+      <button id="themeBtn" aria-label="Téma váltása">🌙/☀</button>
     </div>
   </header>
 
@@ -72,57 +75,85 @@
       <div class="section-title">Mód</div>
       <div class="pills" id="modePills">
         <label class="pill"><input type="radio" name="mode" value="standard" checked> Standard (tanulmányi + érettségi / érettségi×2)</label>
-        <label class="pill"><input type="radio" name="mode" value="practice"> Gyakorlati vizsgás szak (művészet stb.)</label>
+        <label class="pill"><input type="radio" name="mode" value="practice"> Gyakorlati vizsgás szak</label>
         <label class="pill"><input type="radio" name="mode" value="sport500"> Nemzetközi élsport (500 pont)</label>
       </div>
-      <div class="help">• Gyakorlati vizsgás szakokon csak a gyakorlati pont duplázása + esetleg katonai többletpont számítható.<br>• Sport 500 választáskor a végeredmény fix 500 pont, ha a bemeneti feltételeknek megfelel.</div>
+      <div class="help">• Gyakorlati szakokon a végösszeg: gyakorlati pont×2, intézményi pont <b>nem</b> adható, csak katonai többletpont lehetséges. • Sport 500: 500 pont, ha a bemeneti feltételek megvannak (min. két érettségi eredmény stb.).</div>
       <div class="divider"></div>
     </section>
 
     <section id="standardPanel" class="grid cols-2">
       <fieldset>
-        <legend>Tanulmányi pontok (max 200)</legend>
-        <div class="section-title">1) Középiskolai év végi jegyek (utolsó két év) – 0…100 pont</div>
-        <div class="help">A magyar nyelv és irodalomnál éves átlagot használj, ha külön jegyek voltak.</div>
+        <legend>Tanulmányi pontok (max 200) <span title="A Hivatal csak akkor számolja, ha az E‑felvételiben jelölted és feltöltötted a bizonyítványoldalakat.">ℹ</span></legend>
+        <div class="section-title">1) Középiskolai év végi jegyek – 0…100 pont</div>
+        <div class="help">A két utolsó tanult év jegyei tárgyanként összeadva, majd ×2. Magyar nyelv és irodalomnál a két jegy számtani átlaga évként.</div>
         <div id="grades"></div>
         <div class="divider"></div>
-        <div class="section-title">2) Érettségi átlag (5 tárgy) – 0…100 pont</div>
-        <div class="help">A négy kötelező + egy választott tárgy érettségi %-ainak átlaga, egész számra kerekítve.</div>
+        <div class="section-title">2) Érettségi átlag (max 100)</div>
+        <div class="help">A 4 kötelező + 1 intézményi tárgy közül 5 legjobb százalék átlagának egészre kerekítése. Ha <i>kevesebb mint 5</i> áll rendelkezésre, annyiból számolunk.</div>
         <div id="eriAvg"></div>
+        <div class="sticky-note" style="margin-top:6px">Megnevezések: „Informatika (Digitális kultúra)” 2020/2024 után a korábbi „Informatika” helyett terjedt el.</div>
       </fieldset>
 
       <fieldset>
         <legend>Érettségi pontok (max 200)</legend>
-        <div class="help">Két vizsgatárgyból számítunk. Emelten: pont = %. Középszinten: pont = táblázat szerinti átváltás.</div>
+        <div class="help">Két vizsgatárgy. Emelt: pont = %. Közép: pont = táblázat szerinti átszámítás.</div>
         <div id="eriPoints"></div>
         <div class="divider"></div>
-        <label class="pill" style="margin-top:6px"><input type="checkbox" id="useVET"> Technikumi / szakmai vizsgát használok az egyik tárgy helyett</label>
+        <label class="pill" style="margin-top:6px"><input type="checkbox" id="useVET"> Technikumi/szakmai vizsga használata az egyik tárgy helyett</label>
         <div id="vetRow" style="display:none; margin-top:8px">
           <div class="row">
             <div>
-              <label>Szakmai vizsga eredmény (%)</label>
-              <select id="vetPct"></select>
-            </div>
-            <div>
-              <label>Szint</label>
-              <select disabled>
-                <option>Középfokú szakmai</option>
+              <label>VET típus</label>
+              <select id="vetType">
+                <option value="emelt">Technikumi oklevél (emelt)</option>
+                <option value="kozep">Szakképesítő / OKJ-utód (közép)</option>
               </select>
             </div>
             <div>
-              <label>Pont (szakmai + 2. tárgy együtt)</label>
-              <input id="vetPts" aria-label="Szakmai pont" disabled value="–" style="width:100%; padding:8px 10px; border:1px solid var(--line); border-radius:10px; background:#f8f8f8;"/>
+              <label>Vizsgaeredmény (%)</label>
+              <select id="vetPct"></select>
+            </div>
+            <div>
+              <label>Pont (VET + másik tárgy)</label>
+              <input id="vetPts" disabled value="–" class="soft"/>
             </div>
           </div>
-          <div class="help">A szakmai vizsga a két érettségi tárgy egyike helyett vehető figyelembe szakirányú továbbtanulásnál.</div>
+          <div class="help">ℹ A VET <b>nem</b> váltja ki a kötelező emelt szintű érettségit, ha a szak ilyen feltételt ír elő (csak tárgyat helyettesít).</div>
         </div>
       </fieldset>
 
       <fieldset>
-        <legend>Intézményi pontok (max 100)</legend>
+        <legend>Szak‑szabályok ellenőrzése (opcionális)</legend>
+        <div class="chips" id="progSubjects"></div>
+        <div class="row compact" style="margin-top:8px">
+          <div>
+            <label>Min. emelt szintű érettségi az elfogadott tárgyakból</label>
+            <select id="minEmelt">
+              <option value="0">0</option>
+              <option value="1" selected>1</option>
+              <option value="2">2</option>
+            </select>
+          </div>
+          <div>
+            <label>Meghirdetés linkje (Felvi)</label>
+            <input id="progLink" type="url" placeholder="https://www.felvi.hu/...">
+          </div>
+          <div>
+            <label>Link műveletek</label>
+            <div class="controls">
+              <button id="openProg" type="button">Megnyitás</button>
+            </div>
+          </div>
+        </div>
+        <div class="help">Válaszd ki az elfogadott tárgyakat. A kalkulátor jelez, ha a kiválasztott 2 érettségi tárgy nem felel meg, vagy nincs meg a min. emelt.</div>
+      </fieldset>
+
+      <fieldset>
+        <legend>Intézményi és katonai pontok</legend>
         <div class="row compact">
           <div>
-            <label>Intézményi pontok</label>
+            <label>Intézményi pontok (max 100)</label>
             <select id="instPts"></select>
           </div>
           <div>
@@ -146,16 +177,23 @@
             </div>
           </div>
         </div>
-        <div class="help">Az intézményi pontokat az egyetemek határozzák meg. Ellenőrizd a kiszemelt szaknál a Felvi oldalon.</div>
+        <div class="help">Az intézményi pontokat a felsőoktatási intézmény szabja meg szakonként.</div>
       </fieldset>
     </section>
 
     <section id="practicePanel" style="display:none">
       <fieldset>
-        <legend>Gyakorlati vizsga (művészeti és egyes tanár/edző szakok)</legend>
+        <legend>Gyakorlati vizsgás szakok</legend>
         <div class="row compact">
           <div>
-            <label>Gyakorlati pont (0–200)</label>
+            <label>Gyakorlati maximum</label>
+            <select id="practiceMax">
+              <option value="200" selected>200</option>
+              <option value="100">100</option>
+            </select>
+          </div>
+          <div>
+            <label>Gyakorlati pont (0–max)</label>
             <select id="practiceScore"></select>
           </div>
           <div>
@@ -172,14 +210,14 @@
             <button id="shareBtn2">Link másolása</button>
           </div>
         </div>
-        <div class="okbox" style="margin-top:8px">Gyakorlati vizsgás szakokon a végösszeg: gyakorlati pont × 2, intézményi pont <b>nem</b> adható. Csak a katonai többletpont számítható.</div>
+        <div class="okbox" style="margin-top:8px">Összpontszám = gyakorlati pont × 2. Intézményi pont nem adható. Csak az önkéntes katonai többletpont számítható.</div>
       </fieldset>
     </section>
 
     <section id="sportPanel" style="display:none">
       <fieldset>
         <legend>Nemzetközi élsport eredmény</legend>
-        <div class="okbox">Jogosultság esetén a felvételi összpontszám: <b>500 pont</b>. Emellett teljesíteni kell az adott szak kötelező feltételeit (pl. emelt szint, alkalmassági vizsga).</div>
+        <div class="okbox">Jogosultság esetén a felvételi összpontszám: <b>500 pont</b>. Emellett teljesíteni kell a szak kötelező feltételeit (min. két érettségi eredmény az előírt szinten, esetleges alkalmassági, stb.).</div>
         <div class="controls" style="margin-top:8px">
           <button id="shareBtn3">Link másolása</button>
         </div>
@@ -187,7 +225,15 @@
     </section>
 
     <section>
-      <div class="sticky-note">Források: Felvi.hu Pontszámítás (2025.12.20), Érettségi pontok, Tanulmányi pontok, Gyakorlati vizsga, Intézményi pontok, Önkéntes katonai többletpont tájékoztató.</div>
+      <fieldset>
+        <legend>Dokumentumok és határidők</legend>
+        <ul class="help" style="margin:0 0 6px 16px; padding:0">
+          <li>Bizonyítványoldalak feltöltése az E‑felvételiben a tanulmányi pontokhoz.</li>
+          <li>Nyelvvizsga, VET/technikumi oklevél, egyéb igazolások feltöltése.</li>
+          <li>Határidők: a Felvi meghirdetés oldalain és a központi tájékoztatóban.</li>
+        </ul>
+        <div class="sticky-note">Hasznos: felvi.hu • oktatas.hu • eduline.hu</div>
+      </fieldset>
     </section>
 
   </main>
@@ -201,6 +247,7 @@
         <span class="muted">képlet: <b id="formula">–</b></span>
         <span>| Intézményi: <b id="sumInst">0</b></span>
         <span>| Katonai: <b id="sumMil">0</b></span>
+        <span class="badge ghost" id="maxBadge">Max: 564 (400+100+64)</span>
       </div>
       <div class="kpi"><span>Végösszeg:</span><b id="grandTotal">0</b></div>
     </div>
@@ -214,29 +261,25 @@
   const toInt = v => parseInt(v,10) || 0;
   const clamp = (n,min,max)=> Math.min(max, Math.max(min, n));
 
-  // Percent options 0..100, but for most exam selects we use 20..100
-  function fillPercentSelect(sel, start=0){
-    sel.innerHTML = '';
-    for(let i=start;i<=100;i++){
-      const o=document.createElement('option'); o.value=o.textContent=i; sel.appendChild(o);
-    }
-  }
-  function fillRangeSelect(sel, start, end){
-    sel.innerHTML = '';
-    for(let i=start;i<=end;i++){ const o=document.createElement('option'); o.value=o.textContent=i; sel.appendChild(o);} }
+  // Theme
+  const themeBtn = $('#themeBtn');
+  function setTheme(mode){ document.body.classList.toggle('dark', mode==='dark'); localStorage.setItem('erettsegi_calc_theme', mode); }
+  themeBtn?.addEventListener('click', ()=>{ const now = document.body.classList.contains('dark')?'light':'dark'; setTheme(now); });
+  setTheme(localStorage.getItem('erettsegi_calc_theme') || (matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light'));
 
-  // Map of középszint % -> felvételi pont (Felvi táblázat)
+  // Percent options helper with blank first
+  function fillPercentSelect(sel, start=0, withBlank=false){ sel.innerHTML = ''; if(withBlank){ const z=document.createElement('option'); z.value=''; z.textContent='—'; sel.appendChild(z); } for(let i=start;i<=100;i++){ const o=document.createElement('option'); o.value=o.textContent=i; sel.appendChild(o); } }
+  function fillRangeSelect(sel, start, end){ sel.innerHTML=''; for(let i=start;i<=end;i++){ const o=document.createElement('option'); o.value=o.textContent=i; sel.appendChild(o); } }
+
+  // Map of középszint % -> felvételi pont (Felvi táblázat 2025)
   const midMap = new Map([
     [20,13],[21,14],[22,15],[23,15],[24,16],[25,17],[26,17],[27,18],[28,19],[29,19],[30,20],[31,21],[32,21],[33,22],[34,23],[35,23],[36,24],[37,25],[38,25],[39,26],[40,27],[41,27],[42,28],[43,29],[44,29],[45,30],[46,31],[47,31],[48,32],[49,33],[50,33],[51,34],[52,35],[53,35],[54,36],[55,37],[56,37],[57,38],[58,39],[59,39],[60,40],[61,41],[62,41],[63,42],[64,43],[65,43],[66,44],[67,45],[68,45],[69,46],[70,47],[71,47],[72,48],[73,49],[74,49],[75,50],[76,51],[77,51],[78,52],[79,53],[80,53],[81,54],[82,55],[83,55],[84,56],[85,57],[86,57],[87,58],[88,59],[89,59],[90,60],[91,61],[92,61],[93,62],[94,63],[95,63],[96,64],[97,65],[98,65],[99,66],[100,67]
   ]);
-  function midPoint(pct){ pct=clamp(pct,20,100); return midMap.get(pct) ?? 0; }
+  const midPoint = pct => midMap.get(clamp(pct,20,100)) ?? 0;
 
   // Subjects
-  const subjectsCore = [
-    'Magyar nyelv és irodalom','Matematika','Történelem','Angol nyelv','Német nyelv'
-  ];
   const subjectsAll = [
-    'Magyar nyelv és irodalom','Matematika','Történelem','Angol nyelv','Német nyelv','Francia nyelv','Olasz nyelv','Spanyol nyelv','Orosz nyelv','Biológia','Fizika','Kémia','Földrajz','Informatika (digitális kultúra)','Informatika','Ének-zene','Rajz és vizuális kultúra','Gazdasági ismeretek','Állampolgári ismeretek','Művészettörténet'
+    'Magyar nyelv és irodalom','Matematika','Történelem','Angol nyelv','Német nyelv','Francia nyelv','Olasz nyelv','Spanyol nyelv','Orosz nyelv','Biológia','Fizika','Kémia','Földrajz','Informatika (Digitális kultúra)','Informatika','Ének-zene','Rajz és vizuális kultúra','Gazdasági ismeretek','Állampolgári ismeretek','Művészettörténet'
   ];
 
   // --- Build UI dynamic parts ---
@@ -246,17 +289,15 @@
     { key:'magyar', label:'Magyar nyelv és irodalom' },
     { key:'tori', label:'Történelem' },
     { key:'matek', label:'Matematika' },
-    { key:'nyelv', label:'Idegen nyelv (válaszd ki lent)' },
+    { key:'nyelv', label:'Idegen nyelv (lent választható)' },
     { key:'valasztott', label:'Választott (intézmény által elfogadott)' }
   ];
   gradesHost.innerHTML = gradeSubjects.map(s=>`
     <div class="row compact" data-key="${s.key}">
       <div><label>${s.label} – utolsó előtti év</label><select class="gradeA"></select></div>
       <div><label>${s.label} – utolsó év</label><select class="gradeB"></select></div>
-      <div><label>Jegyek összege×2</label><input disabled value="–" class="gSum" style="width:100%; padding:8px 10px; border:1px solid var(--line); border-radius:10px; background:#f8f8f8;"></div>
-      <div>
-        ${s.key==='nyelv' ? `<label>Választott nyelv</label><select class="langPick"></select>` : `<label> </label><div class="muted" style="padding:9px 0"></div>`}
-      </div>
+      <div><label>Jegyek összege×2</label><input disabled value="–" class="gSum soft"></div>
+      <div>${s.key==='nyelv' ? `<label>Választott nyelv</label><select class="langPick"></select>` : `<label> </label><div class="muted" style="padding:9px 0"></div>`}</div>
     </div>
   `).join('');
   // Fill grade selects 1..5
@@ -264,7 +305,7 @@
   // Fill language picker
   $$('#grades .langPick').forEach(sel=>{ ['Angol nyelv','Német nyelv','Francia nyelv','Olasz nyelv','Spanyol nyelv','Orosz nyelv'].forEach(v=>{const o=document.createElement('option');o.value=v;o.textContent=v; sel.appendChild(o);}); });
 
-  // Érettségi átlag block (5 subjects %)
+  // Érettségi átlag block (0–5 input)
   const eriAvgHost = $('#eriAvg');
   const eriAvgRows = [
     {key:'magyarP', label:'Magyar nyelv és irodalom %'},
@@ -275,18 +316,18 @@
   ];
   eriAvgHost.innerHTML = eriAvgRows.map(r=>`
     <div class="row compact" data-key="${r.key}">
-      <div><label>${r.label}</label><select class="pct"></select></div>
-      <div><label> </label><div class="muted" style="padding:9px 0">0–100%</div></div>
-      <div><label> </label><div class="muted" style="padding:9px 0"></div></div>
-      <div><label> </label><div class="muted" style="padding:9px 0"></div></div>
+      <div><label>${r.label}</label><select class="pct-avg"></select></div>
+      <div><label> </label><div class="muted" style="padding:9px 0">— vagy 0–100%</div></div>
+      <div><label> </label><div class="muted" style="padding:9px 0"></div></div>
+      <div><label> </label><div class="muted" style="padding:9px 0"></div></div>
     </div>
   `).join('');
-  $$('#eriAvg select.pct').forEach(sel=>fillPercentSelect(sel,0));
+  $$('#eriAvg select.pct-avg').forEach(sel=>fillPercentSelect(sel,0,true));
 
   // Érettségi pontok (2 tárgy)
   const eriHost = $('#eriPoints');
   const examRows = [0,1].map(i=>`
-    <div class="row" data-exam="${i}">
+    <div class="row exam-row" data-exam="${i}">
       <div><label>Vizsgatárgy</label><select class="subj"></select></div>
       <div><label>Szint</label><select class="lvl"><option value="emelt">Emelt</option><option value="kozep">Közép</option></select></div>
       <div><label>Eredmény (%)</label><select class="pct"></select></div>
@@ -303,7 +344,15 @@
   fillRangeSelect($('#instPts'),0,100);
 
   // Practice select
-  fillRangeSelect($('#practiceScore'),0,200);
+  function fillPracticeScore(){ const max = toInt($('#practiceMax').value)||200; fillRangeSelect($('#practiceScore'),0,max); }
+  fillPracticeScore();
+
+  // Program rules chips
+  const progHost = $('#progSubjects');
+  progHost.innerHTML = subjectsAll.map(s=>{
+    const id = 'sub_'+s.replace(/[^a-z0-9]+/gi,'_');
+    return `<label class="chip"><input type="checkbox" class="progSub" id="${id}" value="${s}"> <span>${s}</span></label>`;
+  }).join('');
 
   // Mode switching
   const modeRadios = $$('input[name="mode"]');
@@ -312,6 +361,7 @@
     $('#standardPanel').style.display = mode==='standard'? '' : 'none';
     $('#practicePanel').style.display = mode==='practice'? '' : 'none';
     $('#sportPanel').style.display = mode==='sport500'? '' : 'none';
+    $('#maxBadge').textContent = mode==='sport500' ? 'Max: 500 (sport fix)' : 'Max: 564 (400+100+64)';
     calc();
   }
   modeRadios.forEach(r=>r.addEventListener('change', refreshMode));
@@ -319,13 +369,19 @@
   // Toggle VET row
   $('#useVET').addEventListener('change', e=>{ $('#vetRow').style.display = e.target.checked? '' : 'none'; calc(); });
   $('#vetPct').addEventListener('change', calc);
+  $('#vetType').addEventListener('change', calc);
+
+  // Practice events
+  $('#practiceMax').addEventListener('change', ()=>{ fillPracticeScore(); calc(); });
+  $('#practiceScore').addEventListener('change', calc);
 
   // Listeners
   document.addEventListener('change', (e)=>{
-    if(e.target.closest('#grades') || e.target.closest('#eriAvg') || e.target.closest('#eriPoints') || e.target.closest('#practicePanel') || e.target.id==='instPts' || e.target.id==='milPts' || e.target.id==='milPtsPractice'){
+    if(e.target.closest('#grades') || e.target.closest('#eriAvg') || e.target.closest('#eriPoints') || e.target.closest('#practicePanel') || e.target.id==='instPts' || e.target.id==='milPts' || e.target.id==='milPtsPractice' || e.target.classList.contains('progSub') || e.target.id==='minEmelt'){
       calc();
     }
   });
+  $('#openProg').addEventListener('click', ()=>{ const u=$('#progLink').value; if(u) window.open(u,'_blank'); });
 
   // Helpers
   function gradesPart(){
@@ -334,53 +390,47 @@
     $$('#grades .row.compact').forEach(row=>{
       const a = toInt(row.querySelector('.gradeA').value);
       const b = toInt(row.querySelector('.gradeB').value);
-      const cell = row.querySelector('.gSum');
-      const s = (a+b)*2; cell.value = String(s);
+      const s = (a+b)*2;
+      row.querySelector('.gSum').value = String(s||0);
       sum += s;
     });
     return clamp(sum,0,100);
   }
+
   function eriAvgPart(){
-    // average of five % rounded to integer
-    const vals = $$('#eriAvg .pct').map(s=>toInt(s.value));
-    if(vals.length!==5) return 0;
-    const avg = vals.reduce((a,b)=>a+b,0)/5;
+    // average of up to five % rounded to integer; blank entries ignored
+    const vals = $$('#eriAvg .pct-avg').map(s=>s.value).filter(v=>v!=='').map(v=>toInt(v));
+    if(vals.length===0) return 0;
+    const avg = vals.reduce((a,b)=>a+b,0)/vals.length;
     return Math.round(avg);
   }
+
   function examPoints(){
-    // Two subjects; if VET used, one is VET plus one exam
-    const useVET = $('#useVET').checked;
-    if(useVET){
-      const vet = toInt($('#vetPct').value);
-      const row = $('#eriPoints .row'); // take first exam row by default + VET
-      const other = toInt($('#eriPoints .row [data-exam="0"] .pct')) || 0; // not used, fix below
-    }
-    const rows = $$('#eriPoints .row');
+    const rows = $$('#eriPoints .exam-row');
     let valid = true; let parts=[];
     rows.forEach(r=>{
+      const subj = r.querySelector('.subj').value;
       const lvl = r.querySelector('.lvl').value;
       const pct = toInt(r.querySelector('.pct').value);
       if(!pct || pct<20) valid=false;
-      const pts = lvl==='emelt' ? pct : midPoint(pct);
-      parts.push({lvl,pct,pts});
+      const pts = (lvl==='emelt') ? pct : midPoint(pct);
+      parts.push({subj,lvl,pct,pts});
     });
+
     if($('#useVET').checked){
       const vetPct = toInt($('#vetPct').value);
+      const vetType = $('#vetType').value; // emelt|kozep
       if(!vetPct || vetPct<20) valid=false;
-      // Replace the weaker of the two with VET if VET yields more; by szabály VET one exam helyett; itt a számítás: vetPct + better exam then sum, but VET treated as % directly
-      // There is no separate közép/emelt table for VET; we treat as % value (Felvi: szakmai vizsga százalék + másik tárgy százaléka, majd duplázás) – itt pontszámhoz a két % összege / duplázás a 200-as rendszerhez tartozik.
-      // De ez a logika az érettségi pontok részéhez tartozik: két százalék összege = 200-ig. Úgyhogy itt pontszám = vetPct + (másik tárgyból: emelt->pct, közép->átváltott pont?)
-      // Felvi szerint: a szakmai vizsga az egyik vizsgatárgy helyett vehető figyelembe. A másik vizsgatárgy pontszámítását az adott szint szabálya szerint kell venni. Tehát: VET -> a maga %-a; másik -> emelt esetén %; közép esetén táblázat.
-      // Válasszuk a két exam közül a jobbat a másikként.
+      const vetPts = vetType==='emelt' ? vetPct : midPoint(vetPct);
+      // Use the better of the two exam subjects alongside VET
       parts.sort((a,b)=>b.pts-a.pts);
       const other = parts[0]?.pts || 0;
-      const total = clamp(vetPct + other, 0, 200);
-      // show hint
-      $('#vetPts').value = String(total);
-      return { total, valid };
+      const total = clamp(vetPts + other, 0, 200);
+      $('#vetPts').value = String(total || '0');
+      return { total, valid, parts, vet:{pct:vetPct,type:vetType,pts:vetPts} };
     } else {
       const total = clamp(parts.reduce((a,b)=>a+b.pts,0), 0, 200);
-      return { total, valid };
+      return { total, valid, parts };
     }
   }
 
@@ -388,13 +438,13 @@
     const g = gradesPart();
     const a = eriAvgPart();
     const study = clamp(g + a, 0, 200);
-    const {total: exam, valid} = examPoints();
+    const {total: exam, valid, parts, vet} = examPoints();
     // Two formulas: study+exam vs exam*2, pick max
     const f1 = study + exam;
     const f2 = exam * 2;
     const base = Math.max(f1, f2);
     const formula = base===f2 ? 'Érettségi×2' : 'Tanulmányi+Érettségi';
-    return { study, exam, base, formula, valid };
+    return { study, exam, base, formula, valid, parts, vet };
   }
 
   function computePractice(){
@@ -403,13 +453,20 @@
     return { base };
   }
 
+  function getProgRules(){
+    const accepted = $$('.progSub:checked').map(cb=>cb.value);
+    const minEmelt = toInt($('#minEmelt').value||'0');
+    const link = $('#progLink').value||'';
+    return {accepted, minEmelt, link};
+  }
+
   function calc(){
     const mode = $$('input[name="mode"]').find(r=>r.checked)?.value || 'standard';
-    let base=0, study=0, exam=0, formula='–', valid=true;
+    let base=0, study=0, exam=0, formula='–', valid=true, parts=[], vet=null;
 
     if(mode==='standard'){
       const res = computeStandard();
-      ({study, exam, base, formula, valid} = res);
+      ({study, exam, base, formula, valid, parts, vet} = res);
       $('#sumInst').textContent = $('#instPts').value;
       $('#sumMil').textContent = $('#milPts').value;
     }
@@ -417,7 +474,7 @@
       const res = computePractice();
       base = res.base;
       study=0; exam=0; formula='Gyakorlati×2';
-      $('#sumInst').textContent = '0'; // not allowed
+      $('#sumInst').textContent = '0'; // tiltott
       $('#sumMil').textContent = $('#milPtsPractice').value;
     }
     else { // sport500
@@ -432,26 +489,47 @@
 
     let total = base;
     if(mode==='standard') total += toInt($('#instPts').value) + toInt($('#milPts').value);
-    if(mode==='practice') total += toInt($('#milPtsPractice').value); // only this allowed
-    if(mode==='sport500') total = 500; // by rule
+    if(mode==='practice') total += toInt($('#milPtsPractice').value); // csak ez engedett
+    if(mode==='sport500') total = 500;
 
     $('#grandTotal').textContent = String(total);
 
-    // validation HUD
-    validate(mode, valid);
-
+    validate(mode, valid, parts, vet);
     saveState();
     syncURL();
   }
 
-  function validate(mode, examValid){
-    // Basic validation hints
+  function validate(mode, examValid, parts, vet){
     const issues = [];
+
     if(mode==='standard'){
       if(!examValid) issues.push('Adj meg két érettségi tárgyat legalább 20%-os eredménnyel.');
-      // require 5 pct for average
-      const filled5 = $$('#eriAvg .pct').every(s=>s.value!=='');
-      if(!filled5) issues.push('Az 5 érettségi %-t töltsd ki az átlaghoz.');
+      // duplicate subject warning
+      if(parts && parts.length===2 && parts[0].subj === parts[1].subj){ issues.push('A két érettségi tárgy ne legyen azonos.'); }
+      // avg filled? at least 1 provided
+      const filledAny = $$('#eriAvg .pct-avg').some(s=>s.value!=='');
+      if(!filledAny) issues.push('Az érettségi átlaghoz adj meg legalább 1 tárgyat.');
+      // 25% successful exam threshold
+      const under25 = parts.filter(p=>p.pct>0 && p.pct<25).map(p=>p.subj);
+      if(under25.length){ issues.push('25% alatt az érettségi nem sikeres: '+under25.join(', ')+'.'); }
+      if($('#useVET').checked && vet && vet.pct>0 && vet.pct<25){ issues.push('VET eredmény 25% alatt nem tekinthető sikeresnek.'); }
+
+      // program rules
+      const rules = getProgRules();
+      if(rules.accepted.length){
+        // subject acceptance
+        const notAccepted = parts.filter(p=>!rules.accepted.includes(p.subj)).map(p=>p.subj);
+        if(notAccepted.length){ issues.push('A szak nem fogadja el: '+notAccepted.join(', ')+'.'); }
+        // min emelt
+        const emelts = parts.filter(p=>rules.accepted.includes(p.subj) && p.lvl==='emelt').length;
+        if(emelts < rules.minEmelt){ issues.push('Nincs meg a minimálisan elvárt emelt szint ('+rules.minEmelt+').'); }
+      }
+    }
+
+    if(mode==='practice'){
+      const max = toInt($('#practiceMax').value)||200;
+      const val = toInt($('#practiceScore').value)||0;
+      if(val>max) issues.push('A gyakorlati pont nem lehet nagyobb, mint a kiválasztott maximum.');
     }
 
     let box = document.getElementById('valBox');
@@ -463,31 +541,42 @@
   // Share link + localStorage
   function currentState(){
     const mode = $$('input[name="mode"]').find(r=>r.checked)?.value || 'standard';
-    const state = { mode };
+    const state = { v:3, mode }; // v=state schema
     if(mode==='standard'){
       state.grades = $$('#grades .row.compact').map(r=>({ a:r.querySelector('.gradeA').value, b:r.querySelector('.gradeB').value, lang:r.querySelector('.langPick')?.value||'' }));
-      state.eriAvg = $$('#eriAvg .pct').map(s=>s.value);
+      state.eriAvg = $$('#eriAvg .pct-avg').map(s=>s.value);
       state.exams = $$('#eriPoints .row').map(r=>({ subj:r.querySelector('.subj').value, lvl:r.querySelector('.lvl').value, pct:r.querySelector('.pct').value }));
-      state.useVET = $('#useVET').checked; state.vetPct = $('#vetPct').value;
+      state.useVET = $('#useVET').checked; state.vetPct = $('#vetPct').value; state.vetType = $('#vetType').value;
       state.instPts = $('#instPts').value; state.milPts = $('#milPts').value;
+      // program rules
+      const rules = getProgRules();
+      state.prog = { accepted: rules.accepted, minEmelt: rules.minEmelt, link: rules.link };
     } else if(mode==='practice'){
-      state.practiceScore = $('#practiceScore').value; state.milPtsP = $('#milPtsPractice').value;
+      state.practiceScore = $('#practiceScore').value; state.milPtsP = $('#milPtsPractice').value; state.practiceMax = $('#practiceMax').value;
     }
+    state.theme = document.body.classList.contains('dark')?'dark':'light';
     return state;
   }
   function applyState(state){
     if(!state) return;
+    if(state.theme) setTheme(state.theme);
     if(state.mode){ const r = $$('input[name="mode"]').find(x=>x.value===state.mode); if(r){ r.checked=true; } }
     refreshMode();
     if(state.mode==='standard' && state.grades){
       $$('#grades .row.compact').forEach((r,i)=>{ const g=state.grades[i]||{}; if(g.a) r.querySelector('.gradeA').value=g.a; if(g.b) r.querySelector('.gradeB').value=g.b; if(g.lang) r.querySelector('.langPick').value=g.lang;});
-      if(state.eriAvg) $$('#eriAvg .pct').forEach((s,i)=>{ if(state.eriAvg[i]!=null) s.value=state.eriAvg[i]; });
+      if(state.eriAvg) $$('#eriAvg .pct-avg').forEach((s,i)=>{ if(state.eriAvg[i]!=null) s.value=state.eriAvg[i]; });
       if(state.exams) $$('#eriPoints .row').forEach((r,i)=>{ const e=state.exams[i]||{}; if(e.subj) r.querySelector('.subj').value=e.subj; if(e.lvl) r.querySelector('.lvl').value=e.lvl; if(e.pct) r.querySelector('.pct').value=e.pct; });
       if(state.useVET){ $('#useVET').checked=true; $('#vetRow').style.display=''; } else { $('#useVET').checked=false; $('#vetRow').style.display='none'; }
-      if(state.vetPct) $('#vetPct').value=state.vetPct;
+      if(state.vetPct) $('#vetPct').value=state.vetPct; if(state.vetType) $('#vetType').value=state.vetType;
       if(state.instPts) $('#instPts').value=state.instPts; if(state.milPts) $('#milPts').value=state.milPts;
+      if(state.prog){
+        if(state.prog.accepted){ state.prog.accepted.forEach(name=>{ const cb = $$('.progSub').find(x=>x.value===name); if(cb) cb.checked=true; }); }
+        if(state.prog.minEmelt!=null){ $('#minEmelt').value=String(state.prog.minEmelt); }
+        if(state.prog.link){ $('#progLink').value=state.prog.link; }
+      }
     }
     if(state.mode==='practice'){
+      if(state.practiceMax) $('#practiceMax').value=state.practiceMax; fillPracticeScore();
       if(state.practiceScore) $('#practiceScore').value=state.practiceScore; if(state.milPtsP) $('#milPtsPractice').value=state.milPtsP;
     }
   }
@@ -502,8 +591,17 @@
     if(!s) return null;
     try{ return JSON.parse(decodeURIComponent(escape(atob(s)))); }catch{ return null; }
   }
-  function saveState(){ localStorage.setItem('erettsegi_calc_state', JSON.stringify(currentState())); }
-  function loadState(){ try{ const s = JSON.parse(localStorage.getItem('erettsegi_calc_state')); if(s) applyState(s);}catch{}
+  function saveState(){ localStorage.setItem('erettsegi_calc_state_v3', JSON.stringify(currentState())); }
+  function loadState(){
+    try{
+      const s = JSON.parse(localStorage.getItem('erettsegi_calc_state_v3'));
+      if(s) applyState(s);
+      else{
+        // migrate v1/v2 if present
+        const s2 = JSON.parse(localStorage.getItem('erettsegi_calc_state_v2')); if(s2) applyState(s2);
+        const s1 = JSON.parse(localStorage.getItem('erettsegi_calc_state')); if(s1) applyState(s1);
+      }
+    }catch{}
     const fromURL = readURL(); if(fromURL) applyState(fromURL);
   }
 
@@ -513,7 +611,7 @@
   $('#shareBtn2')?.addEventListener('click', copyLink);
   $('#shareBtn3')?.addEventListener('click', copyLink);
 
-  $('#resetBtn')?.addEventListener('click', ()=>{ localStorage.removeItem('erettsegi_calc_state'); location.href = location.pathname; });
+  $('#resetBtn')?.addEventListener('click', ()=>{ localStorage.removeItem('erettsegi_calc_state_v3'); location.href = location.pathname; });
   $('#saveBtn')?.addEventListener('click', saveState);
 
   // Init
